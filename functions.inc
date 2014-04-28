@@ -2,6 +2,39 @@
 
 
 /**
+ * Nimmt den aktuellen Tag und gibt den den UNIX-Timestamp
+ * von 23:59:59 des Tages zurück.
+ * @return UNIX-timestamp
+ */
+function _searchtools_midnight() {
+  return mktime(0,0,0,date('n'),date('j')+1,date('Y'));
+}
+
+/**
+ * Findet das Datum des ältesten Dossiers in der Ablage
+ * @return integer timestamp des ältesten Dossiers
+ */
+function _searchtools_oldestDocument() {
+  // Cache oldest Document
+  static $oDate = false;
+  if ($oDate) return $oDate;
+
+  $sql = "SELECT created FROM {node} WHERE type LIKE 'dossier' ORDER BY created ASC LIMIT 0,1";
+  $result = db_query($sql);
+  $date1 = db_fetch_object($result)->created;
+  $date1 = mktime(0,0,0,date('n',$date1),date('j',$date1),date('Y',$date1));
+
+  $sql = "SELECT field_dokumentendatum_value FROM {content_type_dossier} ORDER BY field_dokumentendatum_value ASC LIMIT 0,1";
+  $result = db_query($sql);
+  $date2 = strtotime(db_fetch_object($result)->field_dokumentendatum_value);
+  $date2 = mktime(0,0,0,date('n',$date2),date('j',$date2),date('Y',$date2));
+
+  $oDate = ($date1<$date2)?$date1:$date2; // write to static cache
+  return $oDate;
+}
+
+
+/**
  * Ermittelt das Alter eines Nodes anhand des Timestamps
  * Gibt folgendes zurück: heute, gestern, n Tage, n Wochen, n Monate
  * @param integer $timestamp
