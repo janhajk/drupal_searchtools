@@ -1,0 +1,120 @@
+#dossiersearch_results {
+  width:100%;
+  min-height: 600px;
+}
+
+#dossiersearch_export {
+  margin: -15px 0 -15px 0;
+  width:95%;
+  text-align:right;
+}
+
+#dossiersearch_filters {
+  display:none; /* just for startup */
+}
+
+#dossiersearch_filter_date {
+  width:90%;
+}
+
+#dossiersearch_filter_box1 {
+  margin:10px;
+  float:left;
+  width:30%;
+}
+
+#dossiersearch_filter_box1 label {
+  width: 220px;
+}
+
+#dossiersearch_filter_box2 {
+  
+}
+
+.dossiersearch_filter_terms {
+  float:left;
+}
+
+.dossiersearch_filter_terms span {
+  font-style:italic;
+}
+
+.dossiersearch_filter_terms_0 {
+  background-color: black;
+  color:white;
+}
+.dossiersearch_filter_terms_1 {
+  background-color:#CCCCCC;
+  color:black;
+}
+
+/* Home Button auf Google-Maps */
+#dossiersearch_filter_map_home_button {
+  background: white;
+  border: solid 2px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#dossiersearch_filter_map_home_text {
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* Google Maps */
+#dossiersearch_filter_location {
+  margin-left: 20px;
+}
+
+/* Anzahl gefundene Dossiers */
+#dossiersearch_results_count {
+  margin: -15px 0 -15px 0;
+  font-style:italic;
+  font-weight: bold;
+  width:95%;
+  text-align: right;
+  
+}
+
+#dossiersearch_view {
+  margin: -15px 0 -40px 0;
+  width:95%;
+  text-align: right;
+}
+
+#dossiersearch_view img {
+  cursor:pointer;
+}
+
+#dossiersearch_results table {
+  margin: 50px 0 0 0;
+  width: 95%;
+}
+
+#dossiersearch_results table tbody tr {
+  background-color: #E8EDFF;
+  border-top: 1px solid transparent;
+}
+
+#dossiersearch_results table tbody td {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid white;
+  color: #669;
+  padding: 0px 5px 0px 5px; 
+}
+
+/* Titel Zelle in Breite Beschränken */
+#dossiersearch_results table tbody td:first-child {
+  max-width: 300px;
+}
+
+#dossiersearch_results table tbody td:nth-child(5) {
+  max-width: 100px; 
+}
+
+#dossiersearch_results table tbody tr:hover td {
+  background-color: #D0DAFD;
+  color: #339;
+}

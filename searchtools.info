@@ -1,0 +1,6 @@
+;$Id$
+name = Custom Search Tools
+description = Diverse Suchhilfen erstellt von Jan Schar
+core = 6.x
+php = 5.2
+package = "Custom Modules"
