@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Style id="cabc35735e" />
+    <Style id="12b695b21b" />
+    <Style id="6732392a6b">
+      <LineStyle>
+        <color>ccffffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>a6ffffff</color>
+        <colorMode>normal</colorMode>
+        <fill>1</fill>
+      </PolyStyle>
+    </Style>
+    <Style id="74a2545b54">
+      <LineStyle>
+        <color>ccffffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>80404040</color>
+        <colorMode>normal</colorMode>
+        <fill>1</fill>
+      </PolyStyle>
+    </Style>
+    <Style id="414a4dceaf">
+      <LineStyle>
+        <color>ccffffff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>80ffffff</color>
+        <colorMode>normal</colorMode>
+        <fill>1</fill>
+      </PolyStyle>
+    </Style>
+    <Style id="d14e379f66">
+      <LineStyle>
+        <color>ccb0259a</color>
+        <width>15</width>
+      </LineStyle>
+    </Style>
+    <Style id="173f71e9ce">
+      <LineStyle>
+        <color>ccb0259a</color>
+        <width>15</width>
+      </LineStyle>
+    </Style>
+    <Style id="49ca363134">
+      <LineStyle>
+        <color>cc0000ed</color>
+        <width>15</width>
+      </LineStyle>
+    </Style>
+    <Style id="593e371e4d">
+      <LineStyle>
+        <color>cc000000</color>
+        <width>15</width>
+      </LineStyle>
+    </Style>
+    <Style id="33d4aba769">
+      <LineStyle>
+        <color>cc000000</color>
+        <width>5</width>
+      </LineStyle>
+    </Style>
+    <Style id="c129b4219d">
+      <LineStyle>
+        <color>cc0000ed</color>
+        <width>15</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>800000ff</color>
+        <colorMode>normal</colorMode>
+        <fill>1</fill>
+      </PolyStyle>
+    </Style>
+    <Style id="64651fef7e">
+      <LineStyle>
+        <color>cc0000ed</color>
+        <width>5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>800000ff</color>
+        <colorMode>normal</colorMode>
+        <fill>1</fill>
+      </PolyStyle>
+    </Style>
+    <Style id="461da27e97">
+      <IconStyle>
+        <color>ff000000</color>
+      </IconStyle>
+      <LineStyle>
+        <color>bfffffff</color>
+      </LineStyle>
+    </Style>
+    <Folder id="b80d8ff2dc">
+      <name>Group</name>
+      <Placemark id="8c4e1083bd">
+        <description />
+        <styleUrl>#cabc35735e</styleUrl>
+      </Placemark>
+      <Placemark id="dfbc0ef9f9">
+        <description />
+        <styleUrl>#12b695b21b</styleUrl>
+      </Placemark>
+      <Placemark id="47a6604f7a">
+        <description />
+        <styleUrl>#6732392a6b</styleUrl>
+        <Polygon>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-682.894331752014,84.9953680234062
+-682.894331752014,84.9953680234062
+-682.894331752014,84.9953680234062
+-682.894331752014,84.9953680234062</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="37d0177b12">
+        <description />
+        <styleUrl>#74a2545b54</styleUrl>
+        <Polygon>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-799.60372620697,84.8697987840214
+-799.60372620697,84.8697987840214
+-799.60372620697,84.8697987840214
+-799.60372620697,84.8697987840214</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="04b0cf7c03">
+        <description />
+        <styleUrl>#414a4dceaf</styleUrl>
+        <Polygon>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-734.932705699158,84.8703590227149
+956.786044300842,84.8703590227149
+956.786044300842,-84.7336925350777
+-734.932705699158,-84.7336925350777</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="ebb89add3a">
+        <description />
+        <styleUrl>#d14e379f66</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.51545256500243,47.5720773881549
+7.51545256500243,47.5720773881549</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="39eca18a8b">
+        <description />
+        <styleUrl>#173f71e9ce</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.57330244903563,47.569876886564
+7.57004088287352,47.5682554051756
+7.56686514739989,47.5660547429969
+7.56523436431883,47.5628694102962
+7.56566351776121,47.5595101223447
+7.56574934844969,47.5573090927548
+7.56652182464598,47.5541811548072
+7.56763762359618,47.5511688899382
+7.57004088287352,47.5484461169478
+7.57252997283934,47.5463025578512
+7.57604903106688,47.5449700309853
+7.58042639617918,47.5436374702449</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="a023922d0a">
+        <description />
+        <styleUrl>#173f71e9ce</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.56738013153075,47.5530805396418
+7.56738013153075,47.5530805396418
+7.56738013153075,47.5530805396418</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="d87e11dd4c">
+        <description />
+        <styleUrl>#173f71e9ce</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.56394690399168,47.5749147405689
+7.56600684051512,47.5733513204998
+7.56832426910399,47.5703401577397
+7.56883925323485,47.567792115558</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="f908b22e8a">
+        <description />
+        <styleUrl>#49ca363134</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.61244124298094,47.5460997842043
+7.60943716888426,47.545491458571
+7.60364359741209,47.5448831258779
+7.59656256561278,47.5430580854394
+7.58626288299559,47.5432608708481
+7.5814563644409,47.544129942286
+7.5814563644409,47.544129942286</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="fc89e7ae51">
+        <description />
+        <styleUrl>#49ca363134</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.58137053375243,47.5436229856976
+7.58360213165282,47.5431449935672
+7.58930987243651,47.5424931790927
+7.59675568466185,47.5424497245062
+7.60413712387083,47.5442458173886
+7.60855740432738,47.5446513782323
+7.61166876678465,47.5453611021589
+7.6125056159973,47.5458825258592</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="b7685c27ee">
+        <description />
+        <styleUrl>#593e371e4d</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.58954590682982,47.5458535580116
+7.58954590682982,47.5458535580116</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="9cc1288569">
+        <description />
+        <styleUrl>#33d4aba769</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.59070462112425,47.5424497245057
+7.59405201797484,47.5423917850009</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="d24fb2712e">
+        <description />
+        <styleUrl>#33d4aba769</styleUrl>
+        <LineString>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.59332245712279,47.5431594782407
+7.59006089096068,47.5430580854381</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="9cd597b5da">
+        <description />
+        <styleUrl>#c129b4219d</styleUrl>
+        <Polygon>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>7.61259144668577,47.546143235764
+7.61259144668577,47.546143235764</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="c37f7e3a20">
+        <description />
+        <styleUrl>#64651fef7e</styleUrl>
+        <Polygon>
+          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>7.61265581970213,47.546143235764
+7.61409348373411,47.5451872931058</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="f987feeb09">
+        <description><![CDATA[<span style="font-family: Helvitica;">Ringanschluss, West- Tunnel 3.8 km</span>]]></description>
+        <styleUrl>#461da27e97</styleUrl>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.56510561828612,47.5551514147894</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="caf4ca9277">
+        <name>A2 Anschluss Basel-City</name>
+        <description />
+        <styleUrl>#461da27e97</styleUrl>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>7.59935206298826,47.5429277229758</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

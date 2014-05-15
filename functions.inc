@@ -104,7 +104,7 @@ function _searchtools_hasCoordinates($nid) {
  * @return string Kommagetrennte Liste mit Gruppen-Icon und wenn
  * nicht vorhanden mit Gruppenname
  */
-function _searchtools_getGroupIcons($groups, $public) {
+function _searchtools_getGroupIcons($groups, $public=false) {
   static $imgs = array();
   $g = array();
   $showLogos = variable_get('frontpage_showOgLogos', true);

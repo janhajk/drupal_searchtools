@@ -1,0 +1,53 @@
+#inner-content h1.title {
+  display:none;
+}
+
+#frontpage_more {
+  text-decoration:underline;
+  cursor:pointer;
+  color:#B61C1E;
+}
+
+#frontpage_query {
+  position:fixed;
+  color:white;
+  left:400px;
+  top:130px;
+  min-width:425px;
+  height:40px;
+  background:url(images/searchbar.png) no-repeat;
+  padding: 10px 0 0 20px;
+  display:none;
+}
+.help {
+  display:none;
+}
+
+h1.start_title {
+  margin: 10px 0 0 0;
+  color: #B61C1E;
+  font-weight: bold;
+  font-size:1.5em;
+}
+
+.frontpage-map {
+  background-image:url(images/map.png);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  margin:0;
+  padding:0;
+  float:right;
+}
+
+.frontpage-type {
+  width: 16px;
+  height: 16px;
+  margin:0;
+  padding:0;
+  background-repeat: no-repeat;
+}
+
+.frontpage-type-termin {
+  background-image: url();
+}

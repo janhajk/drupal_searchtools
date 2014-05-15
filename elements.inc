@@ -18,7 +18,7 @@ function _dossiersearch_getFilters($query='') {
                    '<input type   = "text" '.
                            'id    = "'.$pre.'title" '.
                            'name  = "title" '.
-                           'value = "'.($query!=''?$query:'').'" '.
+                           'value = "'.$query.'" '.
                            'title = "Titel oder beliebiger Teil des Titels eingeben. '.
                                     'Mehrere W&ouml;rter m&ouml;glich. Es werden nur '.
                                     'exakte &Uuml;bereinstimmungen gefunden">'.

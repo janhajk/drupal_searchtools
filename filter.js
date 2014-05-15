@@ -121,7 +121,7 @@ function dossiersearch_search() {
   var view = dossiersearch_getCurrentView();                        // aktuelle View (Thumbnails oder Normal)
 
   // Fire AJAX-Search
-  $.getJSON('/dossiersuche/results/'+view+'/'+query, function (data) {
+  $.getJSON('/dossier/filter/results/'+view+'/'+query, function (data) {
     dossiersearchNodes = data;                                      // Suchresultate in Globaler Variable speichern
     var results = dossiersearch_themeResults(view,data);          // Resultate in HTML Formatieren
     $('#dossiersearch_results_count').html('Anzahl gefundene Dossiers: ' + results[0]);
@@ -145,7 +145,7 @@ function dossiersearch_nodeMarks(nid,position) {
   dossiersearchMarkers[nid] = new google.maps.Marker({
       position: position,
       map: dossiersearchMap,
-      icon: '/sites/all/modules/custom/dossiersearch/images/bluedot.png'
+      icon: '/sites/all/modules/custom/drupal_searchtools/images/bluedot.png'
   });
   google.maps.event.addListener(dossiersearchMarkers[nid], 'click', function() {
     window.location = '/node/' + nid;
@@ -204,7 +204,7 @@ function gmap_initialize() {
  */
 function dossiersearch_updateExport() {
   var query = dossiersearch_getQuery();
-  $('#dossiersearch_export a').attr('href','/dossiersuche/export/' + dossiersearch_base64encode(query));
+  $('#dossiersearch_export a').attr('href','/dossier/filter/export/' + dossiersearch_base64encode(query));
 }
 
 /*

@@ -1,77 +1,109 @@
-var frontpage_start = 30;
-var frontpage_query = '';
-var frontpage_timeout;
+(function() {
 
-Array.prototype.in_array = function(needle) {
-for(var i=0; i < this.length; i++) if(this[ i] === needle) return true;
-return false;
-}
+    var curPos = 0;
+    var query = '';
+    var timeout;
 
-if(Drupal.jsEnabled) {
-  $(document).ready(function() {
-      $('body').append('<div id="frontpage_query"></div>');
-      $(window).scroll(function(){
-        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-          frontpage_loadMore();
-        }
-      });
-  });
-  // Buchstaben-Suche
-  $(document).keypress(function(e){
-    if (e.target.id != 'edit-search-theme-form-1' && e.target.id != 'edit-masquerade-user-field') {
-      window.clearTimeout(frontpage_timeout);
-      var key = e.which;
-      if (key >= 32 && frontpage_query.length < 22) {
-        frontpage_query = frontpage_query + String.fromCharCode(key);
-        $('#frontpage_query').html('nach "' + frontpage_query + '" suchen [Enter]');
-        $('#frontpage_query').show();
-        frontpage_timeout = window.setTimeout('frontpage_hide()',5000);
-        return false;
-      }
-      else return true;
+    if (Drupal.jsEnabled) {
+        $(document).ready(function() {
+            
+            curPos = Drupal.settings.frontpage.initialEntryCount;
+            
+            // Suchfeld unsichtbar hinzufügen
+            $('body').append('<div id="frontpage_query"></div>');
+
+            // Infinite-Scrolling Event
+            $(window).scroll(function() {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    more(20);
+                }
+            });
+            
+            // Wenn keine Scrollbars (z.B. bei grossem Bildschirm),
+            // dann mehr Einträge nachladen
+            if ($("body").height() <= $(window).height()) {
+                more(30);
+            }
+        });
+
+        // Buchstaben-Suche
+        $(document).keypress(function(e) {
+            if (!ignore(e.target.id)) {
+                window.clearTimeout(timeout);
+                var key = e.which;
+                if (key >= 32 && query.length < 22) {
+                    query += String.fromCharCode(key);
+                    $('#frontpage_query').html('nach "' + query + '" suchen [Enter]');
+                    $('#frontpage_query').show();
+                    timeout = window.setTimeout(hideInput, 5000); // Input Feld wird nach Timeout wieder ausgeblendet
+                    return false;
+                }
+                else return true;
+            }
+            return true;
+        });
+
+        // Sonderzeichen mit keydown!
+        $(document).keydown(function(e) {
+            if (!ignore(e.target.id)) {
+                var key = e.which;
+                // Enter: Wenn query nicht leer, dann Suche starten
+                if (key === 13 && query !== '') {
+                    e.preventDefault();
+                    window.location = '/dossier/filter/' + query;
+                    return false;
+                }
+                // Backspace: Eingabe löschen
+                else if (key === 8 && query !== '') {
+                    e.preventDefault();
+                    query = query.substring(0, query.length - 1);
+                    $('#frontpage_query').html('nach "' + query + '" suchen [Enter]');
+                    return false;
+                }
+                else if (key == 8) { // Wenn query = '' und Löschen-Taste, dann nichts machen
+                    e.preventDefault();
+                    return false;
+                }
+                // Escape: Inputfeld schliessen
+                else if (key == 27) {
+                    hideInput();
+                }
+                else return true;
+            }
+            return true;
+        }); 
     }
-    return true;
-  });
-  // Sonderzeichen mit keydown!
-  $(document).keydown(function(e){
-    if (e.target.id != 'edit-search-theme-form-1' && e.target.id != 'edit-masquerade-user-field') {
-      var key = e.which;
-      // Enter Drücken
-      if (key == 13 && frontpage_query != '') {
-        e.preventDefault();
-        window.location = '/' + Drupal.settings.frontpage.searchpath + '/'+frontpage_query;
-        return false;
-      }
-      // Backspace
-      else if (key == 8 && frontpage_query != '') {
-        e.preventDefault();
-        frontpage_query = frontpage_query.substring(0,frontpage_query.length-1);
-        $('#frontpage_query').html('nach "' + frontpage_query + '" suchen [Enter]');
-        return false;
-      }
-      else if (key == 8) {
-        e.preventDefault();
-        return false;
-      }
-      // Escape
-      else if (key == 27) {
-        frontpage_hide();
-      }
-      else return true;
-    }
-    return true;
-  });
-}
+
+    /**
+     * Checked, ob Cursor in nicht-Suchfeld ist
+     */
+    var ignore = function(keyId) {
+        var ignoreList = ['edit-search-theme-form-1', 'edit-masquerade-user-field'];
+        return (ignoreList.indexOf(keyId) === -1) ? false : true;
+    };
 
 
-function frontpage_hide() {
-  $('#frontpage_query').fadeOut();
-  frontpage_query = '';
-}
 
-var frontpage_loadMore = function() {
-  $.get('start/more/' + frontpage_start, function(data) {
-    $('#frontpage_table tbody').append(data);
-    frontpage_start = frontpage_start + 30;
-  });
-};
+    /**
+     * Eingabefeld ausblenden 
+     */
+    var hideInput = function() {
+        $('#frontpage_query').fadeOut();
+        query = '';
+    };
+
+
+    /**
+     * Einträge unten an die Liste anhängen
+     * Diese Funktion wird aufgerufen, wenn der Benutzer
+     * nach unten gescrollt hat und Einräge nachgeladen
+     * werden sollen.
+     */
+    var more = function(count) {
+        $.get('Neustes/more/' + curPos + '/' + count, function(data) {
+            $('#frontpage_table tbody').append(data);
+            curPos += count;
+        });
+    };
+
+})();
