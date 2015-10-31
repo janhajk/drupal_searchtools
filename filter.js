@@ -20,6 +20,7 @@ if(Drupal.jsEnabled) {
       function() {
          //$('#dossiersearch_results table').tablesorter({headers: {1:{sorter:'germandate'}}});
          dossiersearch_addDateFilter();
+         $('#dossiersearch_filters').fadeIn(400);
 
          // Initial Suche
          dossiersearch_search_init(0);

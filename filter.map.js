@@ -8,7 +8,6 @@ if(Drupal.jsEnabled) {
    $(document).ready(function() {
 
       if (!dossiersearch_usemap) { $('#dossiersearch_filter_location').hide(); }
-      $('#dossiersearch_filters').fadeIn(400);
       //$('#dossiersearch_filter_group_select').attr("disabled", true);
 
       if(dossiersearch_showmap && dossiersearch_usemap) {
