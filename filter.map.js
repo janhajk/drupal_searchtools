@@ -1,6 +1,5 @@
 // Zentrum der Karte
 var dossiersearch_zentrum_name = Drupal.settings.dossiersearch.center.title;
-var dossiersearch_zentrum = new google.maps.LatLng(Drupal.settings.dossiersearch.center.latitude, Drupal.settings.dossiersearch.center.longitude);
 
 
 
@@ -27,6 +26,14 @@ if(Drupal.jsEnabled) {
          dossiersearch_search_init(0);
       });
    });
+}
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('dossiersearch_filter_location'), {
+    center: {lat: Drupal.settings.dossiersearch.center.latitude, lng: Drupal.settings.dossiersearch.center.longitude},
+    zoom: 8
+  });
 }
 
 
