@@ -10,6 +10,8 @@ var dossiersearchMap;
 // markers
 var dossiersearchMarkers = [];
 
+var dossiersearch_nodeMarks = function(){};
+
 var firsttime = true;
 var initSorter = true;
 
@@ -118,26 +120,6 @@ function dossiersearch_updateExport() {
    $('#dossiersearch_export a').attr('href','/dossier/filter/export/' + dossiersearch_base64encode(query));
 }
 
-/*
- * Polygon für Projektgebiet
- * die einzelnen Punkte koennen im Dossiersearch-Admin eingegeben werden
- */
-function dossiersearch_displayProjekt()  {
-   var projektgebiet = Drupal.settings.dossiersearch.projekt.map;
-   var gProjektgebiet = [];
-   for (var latlng in projektgebiet) {
-      gProjektgebiet.push(new google.maps.LatLng(projektgebiet[latlng][0],projektgebiet[latlng][1]));
-   }
-   var projectlines = new google.maps.Polygon({
-      path: gProjektgebiet,
-      strokeColor: "#FF0000",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: "#FF0000",
-      fillOpacity: 0.35
-   });
-   projectlines.setMap(dossiersearchMap);  
-}
 
 /**
  * liest die Aktuelle Ansicht (Thumbnails oder Normal)
@@ -175,9 +157,9 @@ function dossiersearch_themeResults(view,data) {
       // Marker des Nodes auf Karte setzten
       dossiersearch_nodeMarks(
          data[key]['nid'],
-         new google.maps.LatLng(
-            data[key]['location']['latitude'],
-            data[key]['location']['longitude']));
+         data[key]['location']['latitude'],
+         data[key]['location']['longitude']
+      );
       count++;
    }
    return new Array(count,rows);

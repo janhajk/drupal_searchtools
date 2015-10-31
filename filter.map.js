@@ -96,3 +96,25 @@ function gmap_initialize() {
 
    return true;
 }
+
+
+/*
+ * Polygon für Projektgebiet
+ * die einzelnen Punkte koennen im Dossiersearch-Admin eingegeben werden
+ */
+function dossiersearch_displayProjekt()  {
+   var projektgebiet = Drupal.settings.dossiersearch.projekt.map;
+   var gProjektgebiet = [];
+   for (var latlng in projektgebiet) {
+      gProjektgebiet.push(new google.maps.LatLng(projektgebiet[latlng][0],projektgebiet[latlng][1]));
+   }
+   var projectlines = new google.maps.Polygon({
+      path: gProjektgebiet,
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35
+   });
+   projectlines.setMap(dossiersearchMap);  
+}
