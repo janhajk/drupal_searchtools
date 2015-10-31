@@ -3,102 +3,102 @@
 /**
  * implements hook_menu()
  */
- 
- 
-function searchtools_menu() {
-  $items = array();
 
-  // Admin settings for searchtools
-  $items['admin/settings/searchtools'] = array(
-    'title'           => 'searchtools',
-    'description'     => t('Settings for searchtools'),
-    'page callback'   => 'drupal_get_form',
-    'page arguments'  => array('searchtools_admin_settings'),
-    'access callback' => 'user_access',
-    'access arguments'=> array('administer site configuration'),
-    'type'            => MENU_NORMAL_ITEM,
-    'file'            => 'admin.inc',
-  );
-  
-  
-  // Filterseite
-  $items['dossier/filter'] = array(
-    'title'           => 'Dossier Suche',
-    'description'     => 'Dossier suchen und filtern',
-    'page callback'   => '_searchtools_page_filter',
-    'page arguments'  => array(2),
-    'access arguments'=> array('access content'),
-    'type'            => MENU_SUGGESTED_ITEM,
-    'file'            => 'page.filter.main.inc',
-  );
-  // AJAX Abfrage für Suchresultate
-  $items['dossier/filter/results'] = array(
-    'page callback'   => '_searchtools_results_json',
-    'page arguments'  => array(3,4),
-    'access arguments'=> array('access content'),
-    'type'            => MENU_CALLBACK,
-    'file'            => 'json.filter.results.inc',
-  );
-  // XLS-Export Download Link
-  $items['dossier/filter/export'] = array(
-    'page callback'   => '_searchtools_export_csv',
-    'page arguments'  => array(3),
-    'access arguments'=> array('access content'),
-    'type'            => MENU_CALLBACK,
-    'file'            => 'export.csv.inc',
-  );
-  
-  
-  // Map-Site
-  $items['map'] = array(
-    'page callback'   => '_page_map',
-    'access arguments'=> array('access content'),
-    'type'            => MENU_CALLBACK,
-    'file'            => 'page.map.inc',
-  );
-  
-  
-  // Neustes-Seite
-  $items['Neustes'] = array(
-    'title'            => variable_get('frontpage_titel', 'Neustes'),
-    'page callback'    => '_searchtools_page_frontpage',
-    'access callback'  => 'user_access',
-    'access arguments' => array('access content'),
-    'type'             => MENU_CALLBACK,
-    'file'             => 'page.frontpage.inc',
-  );
-  $items['Neustes/more/%/%'] = array(
-    'title'            => 'more',
-    'page callback'    => 'frontpage_more',
-    'page arguments'   => array(2,3),
-    'access arguments' => array('access content'),
-    'type'             => MENU_CALLBACK,
-    'file'             => 'page.frontpage.inc',
-  );
-      // Admin
-      $items['admin/settings/searchtools/frontpage'] = array(
-        'title'            => 'frontpage',
-        'description'      => t('Einstellungen Neustes-Seite'),
-        'page callback'    => 'drupal_get_form',
-        'page arguments'   => array('searchtools_frontpage_admin_settings'),
-        'access callback'  => 'user_access',
-        'access arguments' => array('administer site configuration'),
-        'type'             => MENU_NORMAL_ITEM,
-        'file'             => 'admin.inc',
-      );
-      $items['admin/settings/searchtools/frontpage/clearcache'] = array(
-        'title'            => 'Clear Neustes-Cache',
-        'description'      => t('Clear/Reset Neustes-Cache'),
-        'page callback'    => 'frontpage_clearCache',
-        'page arguments'   => array('frontpage_admin_settings'),
-        'access callback'  => 'user_access',
-        'access arguments' => array('administer site configuration'),
-        'type'             => MENU_NORMAL_ITEM,
-        'file'             => 'admin.inc',
-      );
-  
-  
-  return $items;
+
+function searchtools_menu() {
+   $items = array();
+
+   // Admin settings for searchtools
+   $items['admin/settings/searchtools'] = array(
+      'title'           => 'searchtools',
+      'description'     => t('Settings for searchtools'),
+      'page callback'   => 'drupal_get_form',
+      'page arguments'  => array('searchtools_admin_settings'),
+      'access callback' => 'user_access',
+      'access arguments'=> array('administer site configuration'),
+      'type'            => MENU_NORMAL_ITEM,
+      'file'            => 'admin.inc',
+   );
+
+
+   // Filterseite
+   $items['dossier/filter'] = array(
+      'title'           => 'Dossier Suche',
+      'description'     => 'Dossier suchen und filtern',
+      'page callback'   => '_searchtools_page_filter',
+      'page arguments'  => array(2),
+      'access arguments'=> array('access content'),
+      'type'            => MENU_SUGGESTED_ITEM,
+      'file'            => 'page.filter.main.inc',
+   );
+   // AJAX Abfrage für Suchresultate
+   $items['dossier/filter/results'] = array(
+      'page callback'   => '_searchtools_results_json',
+      'page arguments'  => array(3,4),
+      'access arguments'=> array('access content'),
+      'type'            => MENU_CALLBACK,
+      'file'            => 'json.filter.results.inc',
+   );
+   // XLS-Export Download Link
+   $items['dossier/filter/export'] = array(
+      'page callback'   => '_searchtools_export_csv',
+      'page arguments'  => array(3),
+      'access arguments'=> array('access content'),
+      'type'            => MENU_CALLBACK,
+      'file'            => 'export.csv.inc',
+   );
+
+
+   // Map-Site
+   $items['map'] = array(
+      'page callback'   => '_page_map',
+      'access arguments'=> array('access content'),
+      'type'            => MENU_CALLBACK,
+      'file'            => 'page.map.inc',
+   );
+
+
+   // Neustes-Seite
+   $items['Neustes'] = array(
+      'title'            => variable_get('frontpage_titel', 'Neustes'),
+      'page callback'    => '_searchtools_page_frontpage',
+      'access callback'  => 'user_access',
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'page.frontpage.inc',
+   );
+   $items['Neustes/more/%/%'] = array(
+      'title'            => 'more',
+      'page callback'    => 'frontpage_more',
+      'page arguments'   => array(2,3),
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'page.frontpage.inc',
+   );
+   // Admin
+   $items['admin/settings/searchtools/frontpage'] = array(
+      'title'            => 'frontpage',
+      'description'      => t('Einstellungen Neustes-Seite'),
+      'page callback'    => 'drupal_get_form',
+      'page arguments'   => array('searchtools_frontpage_admin_settings'),
+      'access callback'  => 'user_access',
+      'access arguments' => array('administer site configuration'),
+      'type'             => MENU_NORMAL_ITEM,
+      'file'             => 'admin.inc',
+   );
+   $items['admin/settings/searchtools/frontpage/clearcache'] = array(
+      'title'            => 'Clear Neustes-Cache',
+      'description'      => t('Clear/Reset Neustes-Cache'),
+      'page callback'    => 'frontpage_clearCache',
+      'page arguments'   => array('frontpage_admin_settings'),
+      'access callback'  => 'user_access',
+      'access arguments' => array('administer site configuration'),
+      'type'             => MENU_NORMAL_ITEM,
+      'file'             => 'admin.inc',
+   );
+
+
+   return $items;
 }
 
 
@@ -106,9 +106,9 @@ function searchtools_menu() {
  * Implementation of hook_form_alter()
  */
 function searchtools_form_alter(&$form, &$form_state, $form_id) {
-  // Googlemaps ausblenden, wenn nicht benötigt wird
-  if ($form_id == 'dossier_node_form' && !variable_get('searchtools_filterlocation', false)) {
+   // Googlemaps ausblenden, wenn nicht benötigt wird
+   if ($form_id == 'dossier_node_form' && !variable_get('searchtools_filterlocation', false)) {
       $form['locations']['#prefix'] = '<div style="display:none;">';
       $form['locations']['#suffix'] = '</div>';
-  }
+   }
 }
