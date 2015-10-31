@@ -9,10 +9,7 @@ function _searchtools_page_filter($query='') {
 
    $dsPath = drupal_get_path('module', 'searchtools');
    $prPath = drupal_get_path('module', 'previews'     );
-   if (variable_get('dossiersearch_filterlocation', false)) {
-      drupal_set_html_head('<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>');
-      //drupal_set_html_head('<script src="'. check_url('http://maps.google.com/maps/api/js?sensor=false') .'" type="text/javascript"></script>');
-   }
+
    drupal_add_js ($dsPath.'/jquery.ui/js/jquery-ui-1.8.10.custom.min.js', 'core', 'footer');
    drupal_add_css($dsPath.'/jquery.ui/css/ui-lightness/jquery-ui-1.8.7.custom.css', 'core');
 
@@ -23,6 +20,11 @@ function _searchtools_page_filter($query='') {
    drupal_add_css($prPath.'/docviewer.css'  , 'module');
 
    drupal_add_js (_dossiersearch_getJsSettings(), 'setting');
+
+   if (variable_get('dossiersearch_filterlocation', false)) {
+      drupal_set_html_head('<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>');
+      drupal_add_js($dsPath.'/filter.map.js', 'module', 'footer');
+   }
 
    return
       '<div id="dossiersearch_export"><a href="javascript:"><img src="/'.$dsPath. '/images/csv.gif'.'" width="40" height="16" /></a></div>'.
