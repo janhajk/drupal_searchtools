@@ -4,8 +4,6 @@ var dossiersearch_usemap  = Drupal.settings.dossiersearch.gmap.use;
 // ID des Counters um Verzögerung für ajax abfragen bei Live-Suche zu erzeugen
 var dossiersearchDelayId = 0;
 
-// googlemap
-var dossiersearchMap;
 
 // markers
 var dossiersearchMarkers = [];

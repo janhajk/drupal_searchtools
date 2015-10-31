@@ -11,7 +11,6 @@ if(Drupal.jsEnabled) {
 
       if(dossiersearch_showmap && dossiersearch_usemap) {
          $('#dossiersearch_gmap').show();
-         gmap_initialize();
          dossiersearch_displayProjekt();
          $('#dossiersearch_filter_map_active').attr('checked', false);
       }
@@ -19,7 +18,6 @@ if(Drupal.jsEnabled) {
          if($('#dossiersearch_filter_map_active').attr('checked')) {
             if(firsttime && !dossiersearch_showmap) {
                $('#dossiersearch_gmap').show();
-               gmap_initialize();
                dossiersearch_displayProjekt();
             }
          }
@@ -42,13 +40,13 @@ function initMap() {
 /*
  * Places Marks on the Map for every Node
  */
-function dossiersearch_nodeMarks(nid,position) {
+function dossiersearch_nodeMarks(nid, lat, lng) {
    if (dossiersearchMarkers[nid] != undefined) {
       dossiersearchMarkers[nid].setMap(null);
    }
    dossiersearchMarkers[nid] = new google.maps.Marker({
-      position: position,
-      map: dossiersearchMap,
+      position: {lat:lat, lng:lng},
+      map: map,
       icon: '/sites/all/modules/custom/drupal_searchtools/images/bluedot.png'
    });
    google.maps.event.addListener(dossiersearchMarkers[nid], 'click', function() {
