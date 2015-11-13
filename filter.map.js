@@ -120,5 +120,5 @@ function dossiersearch_displayProjekt()  {
       fillColor: "#FF0000",
       fillOpacity: 0.35
    });
-   projectlines.setMap(dossiersearchMap);  
+   projectlines.setMap(dossiersearchMap);
 }

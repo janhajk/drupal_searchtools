@@ -67,6 +67,15 @@ function searchtools_menu() {
       'type'             => MENU_CALLBACK,
       'file'             => 'page.frontpage.inc',
    );
+   // alte Startseite kann noch benutzt werden
+   $items['start'] = array(
+      'title'            => variable_get('frontpage_titel', 'Neustes'),
+      'page callback'    => '_searchtools_page_frontpage',
+      'access callback'  => 'user_access',
+      'access arguments' => array('access content'),
+      'type'             => MENU_CALLBACK,
+      'file'             => 'page.frontpage.inc',
+   );
    $items['Neustes/more/%/%'] = array(
       'title'            => 'more',
       'page callback'    => 'frontpage_more',
