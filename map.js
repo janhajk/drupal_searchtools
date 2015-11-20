@@ -8,7 +8,7 @@
         var center = new google.maps.LatLng(
             Drupal.settings.dossiersearch.center.latitude,
             Drupal.settings.dossiersearch.center.longitude);
-        
+
         var mapOptions = {
             zoom: 13,
             center: center,
@@ -23,7 +23,7 @@
 
         var srcImage = 'http://ring-bs.ch/sites/all/modules/custom/drupal_searchtools/ring.svg';
         overlay = new USGSOverlay(bounds, srcImage, map);
-        
+
         // Gmap darstellen
         // Wizard: http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
         var styles = [

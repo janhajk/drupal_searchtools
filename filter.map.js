@@ -26,10 +26,13 @@ if(Drupal.jsEnabled) {
    });
 }
 
+
 var map;
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('dossiersearch_filter_location'), {
     center: {lat: Drupal.settings.dossiersearch.center.latitude, lng: Drupal.settings.dossiersearch.center.longitude},
+    styles: styleArray,
     zoom: 8
   });
 }
