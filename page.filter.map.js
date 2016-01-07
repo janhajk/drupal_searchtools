@@ -42,11 +42,20 @@ var styleArray = [{
 
 // Load the map into the map div
 (function initMap() {
+   if (!dossiersearch_usemap) return false;
+   firsttime = false;
    var initialZoom = 8;
    map = new google.maps.Map(document.getElementById('dossiersearch_gmap'), {
       center: {lat: Number(Drupal.settings.dossiersearch.center.latitude), lng: Number(Drupal.settings.dossiersearch.center.longitude)},
       styles: styleArray,
       zoom: initialZoom
+   });
+   map.addListener('bounds_changed', function() {
+      document.getElementById('dossiersearch_filter_bounds').innerHTML = dossiersearchMap.getBounds();
+      if ($('#dossiersearch_filter_map_active').attr('checked')) {
+         dossiersearch_search_init(1500);
+      }
+      dossiersearch_updateExport();
    });
 })();
 
