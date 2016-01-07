@@ -14,17 +14,17 @@ if(Drupal.jsEnabled) {
          //dossiersearch_displayProjekt();
          $('#dossiersearch_filter_map_active').attr('checked', false);
       }
-      /*
+
       $('#dossiersearch_filter_map_active').change(function() {
          if($('#dossiersearch_filter_map_active').attr('checked')) {
             if(firsttime && !dossiersearch_showmap) {
                $('#dossiersearch_gmap').show();
-               dossiersearch_displayProjekt();
+               //dossiersearch_displayProjekt();
             }
          }
          // Dossier Suche laufen lassen
          dossiersearch_search_init(0); // Timeout = 0, d.h. keine Verzögerung
-      });*/
+      });
    });
 }
 
@@ -40,30 +40,32 @@ var styleArray = [{
     ]
   },];
 
-function initMap() {
+// Load the map into the map div
+(function initMap() {
    var initialZoom = 8;
    map = new google.maps.Map(document.getElementById('dossiersearch_gmap'), {
       center: {lat: Number(Drupal.settings.dossiersearch.center.latitude), lng: Number(Drupal.settings.dossiersearch.center.longitude)},
       styles: styleArray,
       zoom: initialZoom
    });
-}
-initMap();
+})();
+
 
 
 
 
 /*
  * Places Marks on the Map for every Node
+ * see: https://developers.google.com/maps/documentation/javascript/examples/event-simple
  */
 
-/*
+
 function dossiersearch_nodeMarks(nid, lat, lng) {
    if (dossiersearchMarkers[nid] != undefined) {
       dossiersearchMarkers[nid].setMap(null);
    }
    dossiersearchMarkers[nid] = new google.maps.Marker({
-      position: {lat:lat, lng:lng},
+      position: {lat:Number(lat), lng:Number(lng)},
       map: map,
       icon: '/sites/all/modules/custom/drupal_searchtools/images/bluedot.png'
    });
@@ -71,15 +73,12 @@ function dossiersearch_nodeMarks(nid, lat, lng) {
       window.location = '/node/' + nid;
    });
 }
-
+/*
 // Gmap darstellen
 function gmap_initialize() {
    if (!dossiersearch_usemap) return false;
    firsttime = false;
    var myOptions = {
-      zoom: 14,
-      center: dossiersearch_zentrum,
-      mapTypeId: google.maps.MapTypeId.HYBRID,
       navigationControl: true,
       navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
       mapTypeControl: false,
