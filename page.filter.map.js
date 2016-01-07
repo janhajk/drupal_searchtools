@@ -51,7 +51,7 @@ var styleArray = [{
       zoom: initialZoom
    });
    map.addListener('bounds_changed', function() {
-      document.getElementById('dossiersearch_filter_bounds').innerHTML = dossiersearchMap.getBounds();
+      document.getElementById('dossiersearch_filter_bounds').innerHTML = map.getBounds();
       if ($('#dossiersearch_filter_map_active').attr('checked')) {
          dossiersearch_search_init(1500);
       }
