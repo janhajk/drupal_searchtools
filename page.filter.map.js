@@ -11,9 +11,10 @@ if(Drupal.jsEnabled) {
 
       if(dossiersearch_showmap && dossiersearch_usemap) {
          $('#dossiersearch_gmap').show();
-         dossiersearch_displayProjekt();
+         //dossiersearch_displayProjekt();
          $('#dossiersearch_filter_map_active').attr('checked', false);
       }
+      /*
       $('#dossiersearch_filter_map_active').change(function() {
          if($('#dossiersearch_filter_map_active').attr('checked')) {
             if(firsttime && !dossiersearch_showmap) {
@@ -21,20 +22,31 @@ if(Drupal.jsEnabled) {
                dossiersearch_displayProjekt();
             }
          }
-         dossiersearch_search_init(0);
-      });
+         // Dossier Suche laufen lassen
+         dossiersearch_search_init(0); // Timeout = 0, d.h. keine Verzögerung
+      });*/
    });
 }
 
 
 var map;
+var styleArray = [{
+    featureType: '',
+    elementType: '',
+    stylers: [
+      {hue: ''},
+      {saturation: ''},
+      {lightness: ''},
+    ]
+  },];
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('dossiersearch_filter_location'), {
-    center: {lat: Drupal.settings.dossiersearch.center.latitude, lng: Drupal.settings.dossiersearch.center.longitude},
-    styles: styleArray,
-    zoom: 8
-  });
+   var initialZoom = 8;
+   map = new google.maps.Map(document.getElementById('dossiersearch_gmap'), {
+      center: {lat: Drupal.settings.dossiersearch.center.latitude, lng: Drupal.settings.dossiersearch.center.longitude},
+      styles: styleArray,
+      zoom: initialZoom
+   });
 }
 
 
@@ -43,6 +55,8 @@ function initMap() {
 /*
  * Places Marks on the Map for every Node
  */
+
+/*
 function dossiersearch_nodeMarks(nid, lat, lng) {
    if (dossiersearchMarkers[nid] != undefined) {
       dossiersearchMarkers[nid].setMap(null);
@@ -103,12 +117,15 @@ function gmap_initialize() {
 
    return true;
 }
+*/
 
 
 /*
  * Polygon für Projektgebiet
  * die einzelnen Punkte koennen im Dossiersearch-Admin eingegeben werden
  */
+
+/*
 function dossiersearch_displayProjekt()  {
    var projektgebiet = Drupal.settings.dossiersearch.projekt.map;
    var gProjektgebiet = [];
@@ -125,3 +142,4 @@ function dossiersearch_displayProjekt()  {
    });
    projectlines.setMap(dossiersearchMap);
 }
+*/

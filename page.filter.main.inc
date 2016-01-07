@@ -23,7 +23,7 @@ function _searchtools_page_filter($query='') {
 
    if (variable_get('dossiersearch_filterlocation', false)) {
       drupal_set_html_head('<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>');
-      drupal_add_js($dsPath.'/filter.map.js', 'module', 'footer');
+      drupal_add_js($dsPath.'/page.filter.map.js', 'module', 'footer');
    }
 
    return
