@@ -44,7 +44,7 @@ var styleArray = [{
 (function initMap() {
    if (!dossiersearch_usemap) return false;
    firsttime = false;
-   var initialZoom = 8;
+   var initialZoom = 13;
    map = new google.maps.Map(document.getElementById('dossiersearch_gmap'), {
       center: {lat: Number(Drupal.settings.dossiersearch.center.latitude), lng: Number(Drupal.settings.dossiersearch.center.longitude)},
       styles: styleArray,
@@ -83,27 +83,6 @@ function dossiersearch_nodeMarks(nid, lat, lng) {
    });
 }
 /*
-// Gmap darstellen
-function gmap_initialize() {
-   if (!dossiersearch_usemap) return false;
-   firsttime = false;
-   var myOptions = {
-      navigationControl: true,
-      navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-      mapTypeControl: false,
-      scaleControl: true,
-      streetViewControl: false
-   }
-
-   dossiersearchMap = new google.maps.Map(document.getElementById("dossiersearch_gmap"), myOptions);
-
-   google.maps.event.addListener(dossiersearchMap, 'bounds_changed', function() {
-      document.getElementById('dossiersearch_filter_bounds').innerHTML = dossiersearchMap.getBounds();
-      if ($('#dossiersearch_filter_map_active').attr('checked')) {
-         dossiersearch_search_init(1500);
-      }
-      dossiersearch_updateExport();
-   });
 
    // erzeugt einen "Home"-Button
    var homeControlDiv = document.createElement('DIV');
@@ -124,8 +103,7 @@ function gmap_initialize() {
    dossiersearchMap.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
    // Ende Home-Button
 
-   return true;
-}
+
 */
 
 
