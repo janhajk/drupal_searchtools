@@ -21,7 +21,7 @@ function _searchtools_page_filter($query='') {
 
    drupal_add_js (_dossiersearch_getJsSettings(), 'setting');
    if (variable_get('dossiersearch_filterlocation', false)) {
-      //drupal_set_html_head('<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>');
+      drupal_set_html_head('<script src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '')'.'"></script>');
       drupal_add_js($dsPath.'/page.filter.map.js', 'module', 'footer');
    }
 
@@ -35,6 +35,5 @@ function _searchtools_page_filter($query='') {
       '<thead id="dossiersearch_results_head"></thead>'.
       '<tbody id="dossiersearch_results_body"></tbody>'.
       '</table>'.
-      '</div>'.
-      '<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>';
+      '</div>';
 }
