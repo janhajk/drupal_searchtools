@@ -21,7 +21,7 @@ function _searchtools_page_filter($query='') {
 
    drupal_add_js (_dossiersearch_getJsSettings(), 'setting');
    if (variable_get('dossiersearch_filterlocation', false)) {
-      drupal_add_js('<script async defer src="https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap"></script>', 'inline', 'footer');
+      drupal_add_js('https://maps.googleapis.com/maps/api/js?key='.variable_get('drupal_searchtools_gApiKey', '').'&callback=initMap', 'module', 'footer', true);
       drupal_add_js($dsPath.'/page.filter.map.js', 'module', 'footer');
    }
 
