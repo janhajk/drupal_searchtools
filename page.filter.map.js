@@ -43,7 +43,7 @@ var styleArray = [{
 function initMap() {
    var initialZoom = 8;
    map = new google.maps.Map(document.getElementById('dossiersearch_gmap'), {
-      center: {lat: Drupal.settings.dossiersearch.center.latitude, lng: Drupal.settings.dossiersearch.center.longitude},
+      center: {lat: Number(Drupal.settings.dossiersearch.center.latitude), lng: Number(Drupal.settings.dossiersearch.center.longitude)},
       styles: styleArray,
       zoom: initialZoom
    });
